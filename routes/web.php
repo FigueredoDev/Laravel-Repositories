@@ -17,6 +17,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::view('/view', 'welcome');
+
 Route::get('/contatos', function () {
     return view('contact');
 });
@@ -37,4 +39,10 @@ Route::get('/categorias/{flag}/posts', function ($post){
 
 Route::get('/produtos/{id_produto?}', function ($id_produto = ""){
     return "Produto(s) {$id_produto}";
+});
+
+Route::redirect('/redirect1', '/redirect2');
+
+Route::get('/redirect2', function (){
+    return "Pagina redirecionada";
 });
