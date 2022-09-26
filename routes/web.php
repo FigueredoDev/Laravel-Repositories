@@ -46,3 +46,11 @@ Route::redirect('/redirect1', '/redirect2');
 Route::get('/redirect2', function (){
     return "Pagina redirecionada";
 });
+
+Route::get('/carrinho', function (){
+    return "Produtos do Carrinho";
+})->name('url.carrinho');
+
+Route::get('redirect3', function (){
+    return redirect()->route('url.carrinho');
+});
