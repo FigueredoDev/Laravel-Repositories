@@ -16,3 +16,13 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/contatos', function () {
+    return view('contact');
+});
+
+Route::any("/any", function () {
+    return "Method Any";});
+
+Route::match(["get", "post"],"/match", function () {
+    return "Method Match";});
