@@ -29,7 +29,7 @@ Route::any("/any", function () {
 Route::match(["get", "post"],"/match", function () {
     return "Method Match";});
 
-    Route::get('/categorias/{flag}', function ($flag){
+Route::get('/categorias/{flag}', function ($flag){
     return "Produtos da categoria: {$flag}";
 });
 
