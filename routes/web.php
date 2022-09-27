@@ -49,8 +49,35 @@ Route::get('/redirect2', function (){
 
 Route::get('/carrinho', function (){
     return "Produtos do Carrinho";
-})->name('url.carrinho');
+})-> name('url.carrinho');
 
 Route::get('redirect3', function (){
-    return redirect()->route('url.carrinho');
+    return redirect()-> route('url.carrinho');
+});
+
+Route::get('/login', function (){
+    return "Pagina de Login";
+})-> name("login");
+
+
+Route::group([
+    'middleware' => ['auth'],
+    'prefix' => 'admin',
+    'name' => 'admin.',
+], function (){
+    Route::get('/dashboard', function (){
+        return "Hello Admin";
+    })-> name('dashboard');
+    
+    Route::get('/', function (){
+        return redirect()-> route('dashboard');
+    });
+
+    Route::get('/financeiro', function (){
+        return "Financeiro Admin";
+    })-> name('financeiro');
+    
+    Route::get('/cadastros', function (){
+        return "Cadastros Admin";
+})-> name('cadastros');
 });
