@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\ProductController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,28 +13,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('produtos', [ProductController::class, 'index'])-> name('produtos.index');
+
 Route::get('/', function () {
     return view('welcome');
 });
-
-Route::view('/view', 'welcome');
 
 Route::get('/contatos', function () {
     return view('contact');
 });
 
-Route::any("/any", function () {
-    return "Method Any";});
-
-Route::match(["get", "post"],"/match", function () {
-    return "Method Match";});
-
 Route::get('/categorias/{flag}', function ($flag){
     return "Produtos da categoria: {$flag}";
-});
-
-Route::get('/categorias/{flag}/posts', function ($post){
-    return "Posts da categoria: {$post}";
 });
 
 Route::get('/produtos/{id_produto?}', function ($id_produto = ""){
@@ -54,10 +44,6 @@ Route::get('/carrinho', function (){
 Route::get('redirect3', function (){
     return redirect()-> route('url.carrinho');
 });
-
-Route::get('/login', function (){
-    return "Pagina de Login";
-})-> name("login");
 
 
 Route::group([
