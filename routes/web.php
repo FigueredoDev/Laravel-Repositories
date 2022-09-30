@@ -13,7 +13,15 @@ use App\Http\Controllers\ProductController;
 |
 */
 
-Route::get('produtos', [ProductController::class, 'index'])-> name('produtos.index');
+Route::post('produtos/{id}', [ProductController::class, 'create'])-> name('product.create');
+
+Route::get('produtos/{id}', [ProductController::class, 'read'])-> name('product.read');
+
+Route::put('produtos/{id}', [ProductController::class, 'update'])-> name('product.update');
+
+Route::delete('produtos/{id}', [ProductController::class, 'delete'])-> name('product.delete');
+
+Route::get('produtos', [ProductController::class, 'index'])-> name('product.index');
 
 Route::get('/', function () {
     return view('welcome');
