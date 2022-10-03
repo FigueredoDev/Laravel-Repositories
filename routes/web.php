@@ -12,7 +12,7 @@ use App\Http\Controllers\ProductController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+/* CRUD
 Route::post('produtos/{id}', [ProductController::class, 'create'])-> name('product.create');
 
 Route::get('produtos/{id}', [ProductController::class, 'read'])-> name('product.read');
@@ -22,6 +22,10 @@ Route::put('produtos/{id}', [ProductController::class, 'update'])-> name('produc
 Route::delete('produtos/{id}', [ProductController::class, 'delete'])-> name('product.delete');
 
 Route::get('produtos', [ProductController::class, 'index'])-> name('product.index');
+*/
+
+Route::resource('products', ProductController::class);
+
 
 Route::get('/', function () {
     return view('welcome');
