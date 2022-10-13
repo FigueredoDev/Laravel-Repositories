@@ -6,9 +6,9 @@ use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
-    
+
     protected $request;
-    
+
     public function __construct(Request $request){
         $this->request = $request;
         //$this->middleware('auth')->only(['create', 'store']);
@@ -26,9 +26,11 @@ class ProductController extends Controller
     public function index()
     {
         $test = 123;
-        
+        $test2 = 321;
+        $test3 = [1, 2, 3, 4, 5];
+
         return view('admin.pages.products.index', compact('test'));
-        
+
         /* return view('test', [
             'test' => $test
         ]); */
