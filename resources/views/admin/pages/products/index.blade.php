@@ -5,6 +5,21 @@
 @section('content')
 
     <h1>Show the Products</h1>
+
+    @if (isset($products))
+        @foreach ($products as $product)
+            <p class="@if ($loop->first) last @endif">{{ $product }}</p>
+        @endforeach
+    @endif
+
+    <hr>
+    @forelse ($products as $product)
+        <p class="@if ($loop->last) last @endif">{{ $product }}</p>
+    @empty
+        <p>Products is empty</p>
+    @endforelse
+    <hr>
+
     @if ($test === 123)
         <h2>Equals in first if</h2>
     @else
@@ -21,34 +36,40 @@
         <p>{{ $test2 }}</p>
     @endisset
 
-    @empty($test3)
-        <p>This value is empty...</p>
-    @endempty
+@empty($test3)
+    <p>This value is empty...</p>
+@endempty
 
-    @auth
-        <p>Authenticated</p>
-    @else
-        <p>You are not authenticated</p>
-    @endauth
+@auth
+    <p>Authenticated</p>
+@else
+    <p>You are not authenticated</p>
+@endauth
 
-    @guest
-        <p>You are not authenticated</p>
-    @endguest
+@guest
+    <p>You are not authenticated</p>
+@endguest
 
-    @switch($test)
-        @case(1)
-            Equals one
-        @break
+@switch($test)
+    @case(1)
+        Equals one
+    @break
 
-        @case(2)
-            Equals two
-        @break
+    @case(2)
+        Equals two
+    @break
 
-        @case(123)
-            Equals 123
-        @break
+    @case(123)
+        Equals 123
+    @break
 
-        @default
-            Default
-    @endswitch
+    @default
+        Default
+@endswitch
 @endsection
+
+<style>
+.last {
+    background: grey;
+}
+</style>

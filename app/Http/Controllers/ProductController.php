@@ -28,8 +28,9 @@ class ProductController extends Controller
         $test = 123;
         $test2 = 321;
         $test3 = [1, 2, 3, 4, 5];
+        $products = ['Tv', 'Phone', 'Laptop'];
 
-        return view('admin.pages.products.index', compact('test'));
+        return view('admin.pages.products.index', compact('test', 'test2', 'test3', 'products'));
 
         /* return view('test', [
             'test' => $test
