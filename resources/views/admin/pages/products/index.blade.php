@@ -80,8 +80,16 @@
 @endswitch
 @endsection
 
+@push('styles')
 <style>
-.last {
-    background: grey;
-}
+    .last {
+        background: white;
+    }
 </style>
+@endpush
+
+@push('scripts')
+<script>
+    document.body.style.background = 'grey'
+</script>
+@endpush
