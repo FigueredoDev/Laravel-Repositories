@@ -6,6 +6,18 @@
 
     <h1>Show the Products</h1>
 
+    @component('admin.components.card')
+        @slot('title')
+            <h1>Card title</h1>
+        @endslot
+        A example card
+    @endcomponent
+
+    <hr>
+
+    @include('admin.includes.alerts', ['content' => 'alert of products'])
+
+    <hr>
     @if (isset($products))
         @foreach ($products as $product)
             <p class="@if ($loop->first) last @endif">{{ $product }}</p>
