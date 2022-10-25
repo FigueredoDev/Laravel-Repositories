@@ -5,7 +5,7 @@
 @section('content')
 
     <h1>Show the Products</h1>
-
+    <a href="{{ route('products.create') }}">Create a new product</a>
     @component('admin.components.card')
         @slot('title')
             <h1>Card title</h1>

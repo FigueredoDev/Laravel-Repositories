@@ -13,7 +13,7 @@ class ProductController extends Controller
         $this->request = $request;
         //$this->middleware('auth')->only(['create', 'store']);
         //$this->middleware('auth')->only(['create', 'store']);
-        $this->middleware('auth')->except('index');
+        // $this->middleware('auth')->except('index');
     }
 
 
@@ -44,7 +44,8 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //
+        //create products with form
+        return view('admin.pages.products.create');
     }
 
     /**
@@ -55,7 +56,7 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        dd('Registering new product');
     }
 
     /**
@@ -66,7 +67,7 @@ class ProductController extends Controller
      */
     public function show($id)
     {
-        return "Produtos {$id}";
+        return "Products {$id}";
     }
 
     /**
