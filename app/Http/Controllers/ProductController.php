@@ -60,7 +60,13 @@ class ProductController extends Controller
         // dd($request->only(['name', 'description']));
         // dd($request->name);
         // dd($request->input('name', 'default'));
-        dd('Registering new product');
+        // dd('Registering new product');
+        if ($request->file('photo')->isValid()){
+
+            // dd($request->file('photo')->store('products'));
+            $nameFile = $request->name . "." . $request->photo->extension();
+            dd($request->file('photo')->storeAs('products', $nameFile));
+        }
     }
 
     /**
