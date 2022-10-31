@@ -56,6 +56,10 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
+        // dd($request->all());
+        // dd($request->only(['name', 'description']));
+        // dd($request->name);
+        // dd($request->input('name', 'default'));
         dd('Registering new product');
     }
 
